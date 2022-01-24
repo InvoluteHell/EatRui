@@ -227,6 +227,18 @@ function refreshGameLayer(box, loop, offset) {
         box.style[transform] = 'translate3D(0,' + box.y + 'px,0)';
     }
     box.style[transitionDuration] = '150ms';
+
+    var bls = document.querySelectorAll('.block')
+    for (var bl of bls) {
+        var ranDisrupt = Math.floor(Math.random() * 1000) % 6;
+        if (bl.className.search(/t\d/) === -1) {
+            if (bl.style.backgroundImage === '') {
+                bl.style.backgroundImage = `url("./static/image/ganrao${ranDisrupt}.jpg")`;
+            }
+        } else {
+            bl.style.backgroundImage = '';
+        }
+    }
 }
 
 function gameLayerMoveNextRow() {
@@ -341,11 +353,11 @@ function shareText(score) {
         return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
     SubmitResults();
-    if (score <= 49) return '叔叔很生气';
-    if (score <= 99) return '你所热爱的就是你的生活';
-    if (score <= 149) return '您就是蒙古上单？';
-    if (score <= 199) return '您马什么时候4啊？';
-    return '人？';
+    if (score <= 49) return '玛丽要被别人吃掉了哦';
+    if (score <= 99) return '加油，马上就能获得玛丽';
+    if (score <= 149) return '冲啊，玛丽在召唤你';
+    if (score <= 199) return '终点就在前方';
+    return '嘿嘿！我的玛丽！';
 }
 
 function toStr(obj) {
