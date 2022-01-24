@@ -232,7 +232,9 @@ function refreshGameLayer(box, loop, offset) {
     for (var bl of bls) {
         var ranDisrupt = Math.floor(Math.random() * 1000) % 6;
         if (bl.className.search(/t\d/) === -1) {
-            bl.style.backgroundImage = `url("./static/image/ganrao${ranDisrupt}.jpg")`;
+            if (bl.style.backgroundImage === '') {
+                bl.style.backgroundImage = `url("./static/image/ganrao${ranDisrupt}.jpg")`;
+            }
         } else {
             bl.style.backgroundImage = '';
         }
